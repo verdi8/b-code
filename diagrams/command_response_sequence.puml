@@ -1,0 +1,18 @@
+@startuml
+participant Controller as C
+participant Robot as R
+C -> R: Command\n""<command code> <arg1> <arg2> ... <argN>""
+activate R
+loop Optional multiple intermediate responses
+    R -> C: Response\n""<response code> <value1> <value2> ... <valueN>""
+end
+alt terminating response (OK or error)
+R -> C: Terminating OK response\n""OK""
+...or...
+R -> C: Terminating error response\n""ERR <error code>""
+end
+deactivate R
+R <- C: Next command
+...and so on...
+hide footbox
+@enduml
