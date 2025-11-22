@@ -2,6 +2,12 @@
 *
 
 # Except documentation files
+!*.puml
 !*.md
 !*.png
 !LICENSE
+
+# Unignore specific directories
+!diagrams/
+!.github/
+!.github/*
