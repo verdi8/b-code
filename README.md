@@ -77,6 +77,18 @@ Gestures, sounds, and displays are considered primary actions, meaning they repr
 
 **Actions** are used for purposes like expressing emotions, providing feedback, or interacting with the **robot**'s environment.
 
+### State and sensors
+
+A **robot** may have various **sensors** to perceive its environment and gather data. These **sensors** can include, but are not limited to: proximity sensors (e.g., ultrasonic, infrared), light sensors, temperature sensors, accelerometers and gyroscopes.
+
+A **robot** may also maintain an internal **state**, which represents its current condition or status. The **state** can include information such as:
+battery level, operational mode (e.g., idle, active, error), position and orientation.
+
+**Sensors** are more about external data gathering, while the **state** is about the internal status of the **robot**.
+
+**Sensor** readings and **state** information can be accessed and queried through specific **commands** defined in this specification.
+
+
 ### General protocol rules
 `b-code` operates as a request-response protocol. The **controller** sends a **command** to the **robot**, 
 which processes the **command** and returns a **response**.
@@ -337,6 +349,38 @@ A terminating `OK` or `ERR <error code>`.
 **Response:**
 
 A terminating `OK` or `ERR <error code>`.
+
+### State and sensor readings
+
+#### Sensor reading
+**Command:**
+
+`Q <sensor code>` with
+`<sensor code>` (type `[CODE]`) is a string that identifies the specific sensor whose reading is being requested. The list of supported sensor codes depends on the **robot** implementation.
+
+**Response:**
+
+The **response** to this **command** consists of:
+```
+R <SENSOR_CODE> <value0> <value1> ... <valueN>
+```
+where `<SENSOR_CODE>` is the same as the requested `<sensor code>`, and `<value0>`, `<value1>`, ..., `<valueN>` are the readings from the specified sensor. The number and type of values depend on the specific sensor being queried.
+
+This **response** is followed by a terminating `OK` or `ERR <error code>`.
+
+### State information
+**Command:**
+
+`I <state code>` with
+`<state code>` (type `[CODE]`) is a string that identifies the specific state information being requested. The list of supported state codes depends on the **robot** implementation.
+
+**Response:**
+
+The **response** to this **command** consists of:
+```
+R <STATE_CODE> <value0> <value1> ... <valueN>
+```
+where `<STATE_CODE>` is the same as the requested `<state code>`, and `<value0>`, `<value1>`, ..., `<valueN>` are the values representing the requested state information. The number and type of values depend on the specific state being queried.
 
 ### Special commands
 
