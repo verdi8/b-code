@@ -150,12 +150,12 @@ In the follwing document, **commands** are represented by a line starting with `
 
 **Example 1: Successful command execution**
 ```
->> M F 10
+>> T F 10
 << OK
 ```
 **Example 2: Command execution with an error**
 ```
->> M X 10
+>> T X 10
 << ERR 2
 ```
 
@@ -179,7 +179,7 @@ These directions imply the **robot** to have a front, a back, a left and/or a ri
 #### Unit of Movement
 In the following **commands**, some **command arguments** are described as a `<unit of movement>`.
 
-For a transltion, the **unit of movement** is a `[FLOAT]` value representing the distance the **robot** should move. But for a rotation, the **unit of movement** is representing the angle the **robot** should rotate.
+For a translation, the **unit of movement** is a `[FLOAT]` value representing the distance the **robot** should move. But for a rotation, the **unit of movement** is representing the angle the **robot** should rotate.
 
 > [!NOTE]
 > As the **unit of movement** is a `[FLOAT]` value, it can be a partial value, such as `0.5` or `1.7`.
@@ -203,7 +203,7 @@ The distance of a translation is specified using a **unit of movement**.
 
 **Command:** 
 
-`M <direction> <unit of movement>` 
+`T <direction> <unit of movement>` 
 
 with
 `<direction>` (type `[CODE]`) is the direction of the **movement**. It can be one of the following letters:
@@ -232,13 +232,13 @@ The only **response** to this **command** is a terminating `OK` or `ERR <error c
 
 Move forward by 10 units of movement:
 ```
->> M F 10
+>> T F 10
 << OK
 ```
 
 Move backward on the left by 3.5 units of movement:
 ```
->> M BL 5.5
+>> T BL 5.5
 << OK
 ```
 
