@@ -16,6 +16,10 @@ One of the objectives of `b-code` is to permit the development of reusable remot
 
 Even though `b-code` is intended to cover a wide range of tiny **robots** capabilities, it is extensible to accommodate specific features of certain **robots**.
 
+## Cheat Sheet
+
+For a quick overview of the `b-code` commands, responses, and examples, see the [CHEATSHEET.md](CHEATSHEET.md) document. It provides a concise summary of the protocol's key elements for easy access during development.
+
 ## Related projects
 ### `b-code` descriptor
 The `b-code` protocol is minimalistic, to be implemented on **robots** with limited sowftare resources like Arduino controllers.
