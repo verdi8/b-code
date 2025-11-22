@@ -9,3 +9,5 @@
 
 # Unignore specific directories
 !diagrams/
+!.github/
+!.github/*
